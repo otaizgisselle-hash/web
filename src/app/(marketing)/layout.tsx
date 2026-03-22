@@ -1,20 +1,17 @@
-import { seoConfig } from "../../../content/seo.config";
-import WhatsAppFloat from "@/components/ui/whatsapp-float"; // Importa el botón aquí
-
-export const metadata = {
-  title: seoConfig.home.title,
-  description: seoConfig.home.description,
-};
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import WhatsAppFloat from "@/components/ui/whatsapp-float";
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col relative">
-      <main className="flex-1">
+      <Navbar />
+      {/* Agregamos un pt-20 para que el contenido no se pegue al Navbar fijo */}
+      <main className="flex-1 pt-20">
         {children}
       </main>
-      
-      {/* El botón flotante vive aquí */}
-      <WhatsAppFloat /> 
+      <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
